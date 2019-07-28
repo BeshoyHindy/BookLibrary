@@ -1,4 +1,5 @@
-﻿using BookLibrary.Domain.Data.Infrastructure;
+﻿using System;
+using BookLibrary.Domain.Data.Infrastructure;
 
 namespace BookLibrary.Domain.Data.Models
 {
@@ -23,7 +24,7 @@ namespace BookLibrary.Domain.Data.Models
         }
         public override string ToString()
         {
-            return $"{FirstName} {LastName}";
+            return string.IsNullOrWhiteSpace(FirstName) && string.IsNullOrWhiteSpace(LastName) ? string.Empty : $"{FirstName} {LastName}";
         }
 
     }

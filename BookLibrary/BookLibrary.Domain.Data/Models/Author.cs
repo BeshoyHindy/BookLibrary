@@ -31,5 +31,17 @@ namespace BookLibrary.Domain.Data.Models
         {
             return FromCsv(csvLine);
         }
+
+        public void FillAuthorName(FullName fullName)
+        {
+            this.FullName = fullName;
+        }
+
+        public override string ToString()
+        {
+            return FullName == null || string.IsNullOrWhiteSpace(FullName.ToString()) ? $"{Email}" : $"{"Full Name:",15} {FullName.ToString()}\n{"Email:",15} {Email}";
+        }
+
+
     }
 }

@@ -1,8 +1,9 @@
-﻿using System.Runtime.CompilerServices;
+﻿using System;
+using System.Runtime.CompilerServices;
 
 namespace BookLibrary.Domain.Data.Infrastructure
 {
-    public abstract class Entity
+    public abstract class Entity 
     {
         public object Id { get; protected set; }
 
@@ -37,10 +38,7 @@ namespace BookLibrary.Domain.Data.Infrastructure
             return (GetType().GetHashCode() * 907) + Id.GetHashCode();
         }
 
-        public override string ToString()
-        {
-            return GetType().Name + " [Id=" + Id + "]";
-        }
+
 
         public abstract object FromCsvObject(string csvLine);
 

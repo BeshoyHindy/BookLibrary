@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace BookLibrary.Domain.Data.Models
 {
@@ -18,12 +19,20 @@ namespace BookLibrary.Domain.Data.Models
         public static Book FromCsv(string csvLine)
         {
             var values = csvLine.Split(';');
-            return new Book(values[0], values[1], new List<Author> { new Author(values[2]) }, values[3]);
+            var authors = values[2].Split(',').Select(a => new Author(a)).ToList();
+            return new Book(values[0], values[1], authors, values[3]);
         }
 
         public override object FromCsvObject(string csvLine)
         {
             return FromCsv(csvLine);
         }
+
+        public override string ToString()
+        {
+            return $"{base.ToString()}\n {"Summary:",14} {Summary}";
+        }
+
+
     }
 }
