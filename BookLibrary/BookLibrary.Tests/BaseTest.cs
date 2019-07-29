@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using BookLibrary.Domain.Data.Models;
+using BookLibrary.Domain.Data.Repository;
 using BookLibrary.Domain.Data.Service;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -12,10 +13,11 @@ namespace BookLibrary.Tests
 
         public static Mock<LibraryService> LibraryServiceMock;
 
+
         [AssemblyInitialize()]
         public static void AssemblyInit(TestContext context)
         {
-            LibraryServiceMock = new Mock<LibraryService>();
+            //LibraryServiceMock = new Mock<LibraryService>();
         }
 
         [ClassInitialize]
